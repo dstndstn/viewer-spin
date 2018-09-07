@@ -1,0 +1,15 @@
+version: '2'
+services:
+  app:
+    image: viewer-app
+    volumes:
+    - ./data:/app/viewer/data:ro
+  web:
+    image: viewer-nginx
+    ports:
+    #- "80:8080"
+    - "8000:8080"
+    #volumes:
+    #- ./docker-nginx/nginx-proxy.conf:/etc/nginx/conf.d/default.conf:ro
+
+     

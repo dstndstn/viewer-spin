@@ -1,0 +1,6 @@
+Django
+numpy
+matplotlib
+uwsgi
+astropy
+-e git+http://github.com/dstndstn/astrometry.net#egg=astrometry
