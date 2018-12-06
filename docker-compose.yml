@@ -1,11 +1,15 @@
 version: '2'
 services:
   app:
+    labels:
+      io.rancher.container.pull_image: always
     image: registry.spin.nersc.gov/dstn/viewer-app:latest
     retain_ip: true
     cap_drop:
     - ALL
   web:
+    labels:
+      io.rancher.container.pull_image: always
     image: registry.spin.nersc.gov/dstn/viewer-nginx:latest
     ports:
     - 60006:8080
