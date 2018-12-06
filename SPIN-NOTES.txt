@@ -1,0 +1,35 @@
+
+# laptop
+docker build -t viewer-app docker-viewer
+
+docker image tag dstndstn/viewer:viewer-app registry.spin.nersc.gov/dstn/viewer-app
+docker image tag dstndstn/viewer:viewer-nginx registry.spin.nersc.gov/dstn/viewer-nginx
+docker image push registry.spin.nersc.gov/dstn/viewer-app
+docker image push registry.spin.nersc.gov/dstn/viewer-nginx
+
+# cori
+module load spin
+cd /project/projectdirs/isguser/SpinUp/dstn-first-stack
+rancher up --render
+rancher up
+rancher stack ls
+
+rancher inspect dstn-first-stack/web
+  look for fqdn / ip address
+
+rancher up --upgrade -d
+rancher up --upgrade --confirm-upgrade
+
+rancher exec stack-name/service bash
+
+rancher logs stack/service
+
+rancher stop stack/service
+rancher stop stack
+
+
+Rancher NFS --
+rancher volume create --driver rancher-nfs THING.STACK
+-visible to all services in a stack
+
+
