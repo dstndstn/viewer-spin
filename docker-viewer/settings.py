@@ -5,6 +5,9 @@ DEBUG_LOGGING = True
 
 ALLOWED_HOSTS.append('127.0.0.1')
 ALLOWED_HOSTS.append('localhost')
+ALLOWED_HOSTS.append('web.dstn-first-stack.sandbox.stable.spin.nersc.org')
+ALLOWED_HOSTS.append('spin.legacysurvey.org')
+ALLOWED_HOSTS.append('spin-dev.legacysurvey.org')
 
 STATIC_TILE_URL_B = 'http://{s}.imagine.legacysurvey.org/static/tiles/{id}/{ver}/{z}/{x}/{y}.jpg'
 SUBDOMAINS_B = ['a','b','c','d']

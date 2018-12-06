@@ -6,6 +6,7 @@ RUN apt-get update && \
     apt-get install -y --no-install-recommends git swig gcc libc-dev make \
             pkg-config zlib1g-dev wcslib-dev libwcs5 libcfitsio-dev \
             libcfitsio-bin libgsl-dev
+# libjpeg-dev libcairo-dev
 
 # Set the working directory to /app
 WORKDIR /app
@@ -20,7 +21,7 @@ RUN git clone http://github.com/legacysurvey/decals-web viewer
 WORKDIR /app/viewer
 
 COPY uwsgi-docker.sh /app/viewer
-COPY settings.py /app/viewer/viewer
+COPY settings.py /app/viewer/viewer/
 ADD secrets secrets
 
 EXPOSE 5000
