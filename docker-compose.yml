@@ -5,17 +5,20 @@ services:
       io.rancher.container.pull_image: always
     image: registry.spin.nersc.gov/dstn/viewer-app:latest
     retain_ip: true
+    # "cosmo" pseudo-user
+    user: 58191:58191
     cap_drop:
     - ALL
   web:
     labels:
       io.rancher.container.pull_image: always
-    image: registry.spin.nersc.gov/dstn/viewer-nginx:latest
+    image: registry.spin.nersc.gov/dstn/viewer-web:latest
     ports:
     - 60006:8080
     volumes:
       - /global/project/projectdirs/cosmo/webapp/viewer-dev/data:/app/viewer/data:ro
-    user: 44591:44591
+    # "cosmo" pseudo-user
+    user: 58191:58191
     group_add:
     - nginx
     cap_drop:
