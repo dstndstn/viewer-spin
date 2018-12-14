@@ -8,6 +8,14 @@ services:
     # "cosmo" pseudo-user
     user: 58191:58191
     volumes:
+      # Ugly; the viewer-dev/data directory has a bunch of absolute symlinks here.
+      - /global/project/projectdirs/cosmo/webapp/viewer/data:/project/projectdirs/cosmo/webapp/viewer/data:ro
+      - /global/projecta/projectdirs/cosmo/work:/global/projecta/projectdirs/cosmo/work
+      - /global/projecta/projectdirs/cosmo/data:/global/projecta/projectdirs/cosmo/data
+      - /global/project/projectdirs/cosmo/work:/global/project/projectdirs/cosmo/work
+      - /global/project/projectdirs/cosmo/data:/global/project/projectdirs/cosmo/data
+      # Mount the code inside the container
+      - /global/project/projectdirs/cosmo/webapp/legacysurvey-viewer-dev/app/app/viewer:/app/viewer:ro
       - /global/project/projectdirs/cosmo/webapp/viewer-dev/data:/app/viewer/data:ro
     cap_drop:
     - ALL
@@ -15,8 +23,6 @@ services:
     labels:
       io.rancher.container.pull_image: always
     image: registry.spin.nersc.gov/dstn/viewer-web:latest
-    ports:
-    - 60006:8080/tcp
     # "cosmo" pseudo-user
     user: 58191:58191
     # FIXME -- could mount a deeper path here.
