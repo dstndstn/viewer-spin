@@ -10,6 +10,11 @@ ALLOWED_HOSTS.append('web.viewer-spin.sandbox.stable.spin.nersc.org')
 ALLOWED_HOSTS.append('web.viewer-spin.dev-cattle.stable.spin.nersc.org')
 ALLOWED_HOSTS.append('spin.legacysurvey.org')
 ALLOWED_HOSTS.append('spin-dev.legacysurvey.org')
+ALLOWED_HOSTS.append('dev.legacysurvey.org')
+ALLOWED_HOSTS.append('a.dev.legacysurvey.org')
+ALLOWED_HOSTS.append('b.dev.legacysurvey.org')
+ALLOWED_HOSTS.append('c.dev.legacysurvey.org')
+ALLOWED_HOSTS.append('d.dev.legacysurvey.org')
 
 STATIC_TILE_URL_B = 'http://{s}.imagine.legacysurvey.org/static/tiles/{id}/{ver}/{z}/{x}/{y}.jpg'
 SUBDOMAINS_B = ['a','b','c','d']
