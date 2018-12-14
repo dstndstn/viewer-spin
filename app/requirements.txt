@@ -1,5 +1,6 @@
 Django
 numpy
+scipy
 matplotlib
 uwsgi
 astropy
