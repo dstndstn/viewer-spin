@@ -33,3 +33,5 @@ rancher volume create --driver rancher-nfs THING.STACK
 -visible to all services in a stack
 
 
+
+export RANCHER_ENVIRONMENT=dev-cattle

@@ -7,6 +7,8 @@ services:
     retain_ip: true
     # "cosmo" pseudo-user
     user: 58191:58191
+    volumes:
+      - /global/project/projectdirs/cosmo/webapp/viewer-dev/data:/app/viewer/data:ro
     cap_drop:
     - ALL
   web:
@@ -14,11 +16,12 @@ services:
       io.rancher.container.pull_image: always
     image: registry.spin.nersc.gov/dstn/viewer-web:latest
     ports:
-    - 60006:8080
-    volumes:
-      - /global/project/projectdirs/cosmo/webapp/viewer-dev/data:/app/viewer/data:ro
+    - 60006:8080/tcp
     # "cosmo" pseudo-user
     user: 58191:58191
+    # FIXME -- could mount a deeper path here.
+    volumes:
+      - /global/project/projectdirs/cosmo/webapp/viewer-dev/data:/app/viewer/data:ro
     group_add:
     - nginx
     cap_drop:

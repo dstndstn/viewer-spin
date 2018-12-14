@@ -6,8 +6,8 @@ DEBUG_LOGGING = True
 ALLOWED_HOSTS.append('127.0.0.1')
 ALLOWED_HOSTS.append('localhost')
 ##
-ALLOWED_HOSTS.append('web.dstn-first-stack.sandbox.stable.spin.nersc.org')
 ALLOWED_HOSTS.append('web.viewer-spin.sandbox.stable.spin.nersc.org')
+ALLOWED_HOSTS.append('web.viewer-spin.dev-cattle.stable.spin.nersc.org')
 ALLOWED_HOSTS.append('spin.legacysurvey.org')
 ALLOWED_HOSTS.append('spin-dev.legacysurvey.org')
 
