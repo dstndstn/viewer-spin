@@ -1,12 +1,7 @@
 version: '2'
 services:
   app:
-    labels:
-      io.rancher.container.pull_image: always
-    image: registry.spin.nersc.gov/dstn/viewer-app:latest
-    retain_ip: true
-    # "cosmo" pseudo-user
-    user: 58191:58191
+    build: app
     volumes:
       # Ugly; the viewer-dev/data directory has a bunch of absolute symlinks here.
       - /global/project/projectdirs/cosmo/webapp/viewer/data:/project/projectdirs/cosmo/webapp/viewer/data:ro
@@ -20,11 +15,7 @@ services:
     cap_drop:
     - ALL
   web:
-    labels:
-      io.rancher.container.pull_image: always
-    image: registry.spin.nersc.gov/dstn/viewer-web:latest
-    # "cosmo" pseudo-user
-    user: 58191:58191
+    build: web
     # FIXME -- could mount a deeper path here.
     volumes:
       - /global/project/projectdirs/cosmo/webapp/viewer-dev/data:/app/viewer/data:ro
