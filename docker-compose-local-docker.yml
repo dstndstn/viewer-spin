@@ -1,11 +1,13 @@
 version: '2'
 services:
   app:
-    image: viewer-app
-    volumes:
-    - ./data:/app/viewer/data:ro
+    build: app
+    #image: viewer-app
+    #volumes:
+    #- ./data:/app/viewer/data:ro
   web:
-    image: viewer-nginx
+    build: web
+    #image: viewer-nginx
     ports:
     #- "80:8080"
     - "8000:8080"
